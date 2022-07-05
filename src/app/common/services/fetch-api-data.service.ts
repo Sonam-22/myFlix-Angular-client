@@ -1,3 +1,4 @@
+import { API_ROOT } from '../constants/constants';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 import {
@@ -7,9 +8,6 @@ import {
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-//Declaring the api url that will provide data for the client app
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +21,7 @@ export class UserRegistrationService {
   public registerUser(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
-      .post(apiUrl + 'users', userDetails)
+      .post(`${API_ROOT}/users`, userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -31,7 +29,7 @@ export class UserRegistrationService {
   public loginUser(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
-      .post(`${apiUrl}login`, userDetails)
+      .post(`${API_ROOT}/login`, userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -39,7 +37,7 @@ export class UserRegistrationService {
     // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
     return this.http
-      .get(`${apiUrl}movies`, {
+      .get(`${API_ROOT}/movies`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -51,7 +49,7 @@ export class UserRegistrationService {
     // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
     return this.http
-      .get(`${apiUrl}movies/${title}`, {
+      .get(`${API_ROOT}/movies/${title}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -63,7 +61,7 @@ export class UserRegistrationService {
     // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
     return this.http
-      .get(`${apiUrl}movies/director/${name}`, {
+      .get(`${API_ROOT}/movies/director/${name}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -75,7 +73,7 @@ export class UserRegistrationService {
     // Get Authorization token stored in local storage
     const token = localStorage.getItem('token');
     return this.http
-      .get(`${apiUrl}movies/genre/${genre}`, {
+      .get(`${API_ROOT}/movies/genre/${genre}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -89,7 +87,7 @@ export class UserRegistrationService {
     // Get Username stored in local storage
     const username = localStorage.getItem('user');
     return this.http
-      .get(`${apiUrl}users/${username}`, {
+      .get(`${API_ROOT}/users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -103,7 +101,7 @@ export class UserRegistrationService {
     // Get Username stored in local storage
     const username = localStorage.getItem('user');
     return this.http
-      .get(`${apiUrl}users/${username}/movies`, {
+      .get(`${API_ROOT}/users/${username}/movies`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -117,7 +115,7 @@ export class UserRegistrationService {
     // Get Username stored in local storage
     const username = localStorage.getItem('user');
     return this.http
-      .post(`${apiUrl}users/${username}/movies/${movieID}`, null, {
+      .post(`${API_ROOT}/users/${username}/movies/${movieID}`, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -131,7 +129,7 @@ export class UserRegistrationService {
     // Get Username stored in local storage
     const username = localStorage.getItem('user');
     return this.http
-      .delete(`${apiUrl}users/${username}/movies/${movieID}`, {
+      .delete(`${API_ROOT}/users/${username}/movies/${movieID}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -145,7 +143,7 @@ export class UserRegistrationService {
     // Get Username stored in local storage
     const username = localStorage.getItem('user');
     return this.http
-      .put(`${apiUrl}users/${username}`, updateDetails, {
+      .put(`${API_ROOT}/users/${username}`, updateDetails, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -159,7 +157,7 @@ export class UserRegistrationService {
     // Get Username stored in local storage
     const username = localStorage.getItem('user');
     return this.http
-      .delete(`${apiUrl}users/${username}`, {
+      .delete(`${API_ROOT}/users/${username}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
