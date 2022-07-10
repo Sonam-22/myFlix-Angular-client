@@ -1,0 +1,43 @@
+.main-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button-container button {
+  width: 100%;
+}
+
+.welcome-card {
+  justify-content: center;
+  align-items: center;
+  width: 35vw;
+  gap: 10px;
+}
+
+.welcome-card h1 {
+  text-align: center;
+}
+
+.login-banner-img-container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 16px;
+  justify-content: center;
+}
+
+.login-banner-img {
+  width: 20vw;
+  height: 20vw;
+  border-radius: 500px;
+}

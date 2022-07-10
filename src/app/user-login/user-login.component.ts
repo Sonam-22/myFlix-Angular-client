@@ -1,8 +1,10 @@
+import { UserInfoService } from './../common/services/user-info.service';
 import { UserRegistrationService } from '../common/services/fetch-api-data.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError, of, throwError } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -15,7 +17,9 @@ export class UserLoginComponent implements OnInit {
   constructor(
     private registrationService: UserRegistrationService,
     private dialogRef: MatDialogRef<UserLoginComponent>,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private router: Router,
+    private userService: UserInfoService
   ) {}
 
   ngOnInit(): void {}
@@ -35,11 +39,10 @@ export class UserLoginComponent implements OnInit {
         this.dialogRef.close();
         console.log(result);
         // Keep user in local storage.
-        localStorage.setItem('token', result.token);
-        localStorage.setItem('user', JSON.stringify(result.user));
-        this.snackBar.open('Logged in successfully', 'OK', {
-          duration: 2000,
-        });
+        this.userService.setUser(result.user);
+        this.userService.setToken(result.token);
+        // Redirect to movies (main) page
+        this.router.navigate(['movies']);
       });
   }
 }

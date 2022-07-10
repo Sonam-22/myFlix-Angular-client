@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="movie-view">
+  <ng-container *ngIf="loading; else movieCards">
+    <mat-spinner></mat-spinner>
+  </ng-container>
+  <ng-template #movieCards>
+    <mat-card *ngFor="let movie of movies; let i = index" class="moview-card">
+      <mat-card-header>
+        <mat-card-title>{{ movie.Title }}</mat-card-title>
+        <mat-card-subtitle
+          >Directed by:
+          <button
+            mat-button
+            (click)="
+              openDirectorDialog(
+                movie.Director.Name,
+                movie.Director.Bio,
+                movie.Director.Birth,
+                movie.Director.Death
+              )
+            "
+            color="primary"
+          >
+            {{ movie.Director.Name }}
+          </button>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [style.height.vh]="50" [src]="movie.ImagePath" />
+      <mat-card-actions>
+        <button
+          mat-button
+          (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
+          color="primary"
+        >
+          Genre
+        </button>
+
+        <button
+          mat-button
+          (click)="openMovieDetailsModal(movie.Title, movie.Description)"
+          color="primary"
+        >
+          Details
+        </button>
+
+        <!-- Render add to or remove from favorites button depending on isFav -->
+        <button
+          mat-button
+          *ngIf="!isFavMovie(movie._id); else withFavouriteMoview"
+          (click)="addToFavoriteMovies(movie._id)"
+        >
+          <mat-icon>favorite_border</mat-icon>
+        </button>
+        <ng-template #withFavouriteMoview>
+          <button
+            mat-button
+            (click)="removeFromFavoriteMovies(movie._id)"
+            color="primary"
+          >
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </ng-template>
+      </mat-card-actions>
+    </mat-card>
+  </ng-template>
+</div>

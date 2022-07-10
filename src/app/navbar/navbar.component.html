@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+  <span class="brand">MyFlix</span>
+  <a
+    mat-button
+    routerLink="/movies"
+    routerLinkActive="nav-link-active"
+    aria-label="Movies"
+    >Movies</a
+  >
+  <span class="spacer"></span>
+  <a
+    mat-button
+    routerLinkActive="nav-link-active"
+    routerLink="/profile"
+    aria-label="Profile"
+    ><mat-icon>person</mat-icon> Profile</a
+  >
+  <button mat-button (click)="logout()" aria-label="Logout">
+    <mat-icon>logout</mat-icon> Logout
+  </button>
+</mat-toolbar>

@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [UserRegistrationComponent],
@@ -20,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     MatDialogModule,
     MatSnackBarModule,
     FormsModule,
+    MatDatepickerModule,
   ],
 })
 export class UserRegistrationModule {}

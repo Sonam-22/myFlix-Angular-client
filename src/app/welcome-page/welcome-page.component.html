@@ -1,0 +1,24 @@
+<div class="main-container">
+  <div class="welcome-card">
+    <h1>Welcome to myFlix!</h1>
+    <div class="login-banner-img-container">
+      <img
+        class="login-banner-img"
+        src="./assets/login-banner.jpg"
+        alt="login-banner"
+      />
+    </div>
+    <div class="button-container">
+      <button mat-raised-button (click)="openUserLoginDialog()" color="primary">
+        Login
+      </button>
+      <button
+        mat-raised-button
+        (click)="openUserRegistrationDialog()"
+        color="primary"
+      >
+        Sign Up
+      </button>
+    </div>
+  </div>
+</div>

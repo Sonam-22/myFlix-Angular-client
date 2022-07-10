@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Sign Up!</mat-card-title>
+    <mat-card-title> Edit profile details </mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <form class="form-container">
@@ -21,7 +21,6 @@
           placeholder="Password"
           type="password"
           name="Password"
-          required
         />
       </mat-form-field>
       <mat-form-field [style.width.%]="100">
@@ -41,6 +40,7 @@
           [(ngModel)]="userData.birthday"
           placeholder="Birthday"
           name="Birthday"
+          required
         />
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
@@ -48,8 +48,9 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="registerUser()" color="primary">
-      Sign Up
+    <button mat-raised-button (click)="updateProfile()" color="primary">
+      Save
     </button>
+    <button mat-button mat-dialog-close>Cancel</button>
   </mat-card-actions>
 </mat-card>

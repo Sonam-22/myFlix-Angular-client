@@ -1,6 +1,6 @@
-import { MatButtonModule } from '@angular/material/button';
-import { UserLoginModule } from './user-login/user-login.module';
-import { UserRegistrationModule } from './user-registration/user-registration.module';
+import { ProfileModule } from './profile/profile.module';
+import { MoviesModule } from './movies/movies.module';
+import { WelcomePageModule } from './welcome-page/welcome-page.module';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,9 +17,10 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    UserRegistrationModule,
-    UserLoginModule,
-    MatButtonModule,
+    WelcomePageModule,
+    MoviesModule,
+    ProfileModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
