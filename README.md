@@ -1,10 +1,34 @@
 # MyFlixAngularClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+Angular client-side application called myFlix based on its existing server-side code (REST API and database)
+
+## Key features
+
+1. The app should display a welcome view where users will be able to either login or register an account.
+2. Once authenticated, the user should now view all movies.
+   - User will see movie as card and each card will display movie's director, its banner, its Genere, its details button and a "mark as favorite button"
+   - On click of director's name on the movie card, user will see the details of director.
+   - On click of Genre button, the user will see the movie genre details in a modal.
+   - On click of Details button, user will see the description of movie.
+   - On toggling the "mark as favorite button", user will be able to mark a movie favorite or remove it from the favorite list.
+3. On the top app navigation bar, user will see movies , profile and logout link.
+   - Movies link will take the user to movies page.
+   - Profile link will take the user to user's profile page.
+   - Logout link will logout the user.
+4. On the user's profile page, they will be able to view their profile details, edit their profile details and
+   delete their account completely.
+
+## Tech Stack
+
+1. Angular 14.0.4.
+2. Angular Material 14.0.4
+3. RxJs
+4. TypeScript
+5. Github pages for deployment
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:8080/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
