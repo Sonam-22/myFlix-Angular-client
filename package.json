@@ -8,7 +8,7 @@
     "build": "ng build --base-href=/myFlix-Angular-client/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && cp dist/my-flix-angular-client/index.html dist/my-flix-angular-client/404.html",
     "deploy": "gh-pages -d dist/my-flix-angular-client"
   },
   "private": false,
