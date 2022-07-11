@@ -7,6 +7,9 @@ import {
 } from '@angular/router';
 import { Injectable } from '@angular/core';
 
+/**
+ * Prevents routing to the page when user in not logged in
+ */
 @Injectable({ providedIn: 'root' })
 export class AuthGuard implements CanActivate {
   constructor(private userInfo: UserInfoService, private router: Router) {}

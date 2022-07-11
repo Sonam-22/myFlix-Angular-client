@@ -18,7 +18,11 @@ export class UserRegistrationService {
   // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient, private userService: UserInfoService) {}
 
-  // Making the api call for the user registration endpoint
+  /**
+   * Registers a user
+   * @param userDetails details of the user
+   * @returns Observable of the request
+   */
   public registerUser(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -26,7 +30,11 @@ export class UserRegistrationService {
       .pipe(catchError(this.handleError));
   }
 
-  // Making the api call for the login endpoint
+  /**
+   * Logs in the user by making http call to login in end point
+   * @param userDetails details of the user
+   * @returns Observable of the http request
+   */
   public loginUser(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http
@@ -34,6 +42,10 @@ export class UserRegistrationService {
       .pipe(catchError(this.handleError));
   }
 
+  /**
+   * Fetches all movies
+   * @returns Observable of Array of movies
+   */
   getAllMovies(): Observable<any> {
     // Get Authorization token stored in local storage
     const token = this.userService.getToken();
@@ -46,6 +58,11 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * Fetch the movie details by title.
+   * @param title title of the movie
+   * @returns Observable of movie details
+   */
   getSingleMovie(title: any): Observable<any> {
     // Get Authorization token stored in local storage
     const token = this.userService.getToken();
@@ -58,6 +75,11 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * Fetches the details of the director
+   * @param name name of the the director
+   * @returns Observable of details of the director
+   */
   getDirector(name: any): Observable<any> {
     // Get Authorization token stored in local storage
     const token = this.userService.getToken();
@@ -69,7 +91,11 @@ export class UserRegistrationService {
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-
+  /**
+   * Fetches the details of genre by its name
+   * @param genre name of the genre
+   * @returns Observable of details of the genere
+   */
   getGenre(genre: any): Observable<any> {
     // Get Authorization token stored in local storage
     const token = this.userService.getToken();
@@ -82,6 +108,10 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * Fetches the details of logged in user.
+   * @returns Observable of user details
+   */
   getUser(): Observable<any> {
     // Get Authorization token stored in local storage
     const token = this.userService.getToken();
@@ -96,7 +126,11 @@ export class UserRegistrationService {
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-
+  /**
+   * Adds movie to user's favourite
+   * @param movieID id of the movie
+   * @returns Observable of request
+   */
   addFavoriteMovie(movieID: string): Observable<any> {
     const token = this.userService.getToken();
     // Get Username stored in local storage
@@ -111,6 +145,11 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * Removes the movie from user's favorite list.
+   * @param movieID id of the moview
+   * @returns Observable of the request
+   */
   removeFavoriteMovie(movieID: any): Observable<any> {
     // Get Authorization token stored in local storage
     const token = this.userService.getToken();
@@ -126,6 +165,11 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * Updates the user details
+   * @param updateDetails user details
+   * @returns Observable of request
+   */
   updateUser(updateDetails: any): Observable<any> {
     const token = this.userService.getToken();
     // Get Username stored in local storage
@@ -140,6 +184,10 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
+  /**
+   * Deletes a user
+   * @returns  Observable of request
+   */
   deleteUser(): Observable<any> {
     const token = this.userService.getToken();
     // Get Username stored in local storage

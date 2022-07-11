@@ -23,7 +23,9 @@ export class UserLoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
-
+  /**
+   * Log in the user
+   */
   loginUser(): void {
     this.registrationService
       .loginUser(this.userData)
@@ -38,10 +40,10 @@ export class UserLoginComponent implements OnInit {
       .subscribe((result) => {
         this.dialogRef.close();
         console.log(result);
-        // Keep user in local storage.
+        /* Keep user in local storage.*/
         this.userService.setUser(result.user);
         this.userService.setToken(result.token);
-        // Redirect to movies (main) page
+        /* Redirect to movies (main) page */
         this.router.navigate(['movies']);
       });
   }

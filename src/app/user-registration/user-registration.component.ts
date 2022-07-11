@@ -26,6 +26,9 @@ export class UserRegistrationComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * Registers the user.
+   */
   registerUser(): void {
     this.registrationService
       .registerUser(this.userData)

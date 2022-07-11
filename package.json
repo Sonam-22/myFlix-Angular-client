@@ -9,7 +9,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build && cp dist/my-flix-angular-client/index.html dist/my-flix-angular-client/404.html",
-    "deploy": "gh-pages -d dist/my-flix-angular-client"
+    "deploy": "gh-pages -d dist/my-flix-angular-client",
+    "docs": "typedoc --entryPointStrategy expand ./src --exclude **/*.spec.ts --tsconfig tsconfig.json"
   },
   "private": false,
   "repository": {
@@ -49,6 +50,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "typedoc": "^0.23.7",
     "typescript": "~4.7.2"
   }
 }

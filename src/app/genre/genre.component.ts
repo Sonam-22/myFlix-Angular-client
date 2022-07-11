@@ -7,6 +7,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./genre.component.scss'],
 })
 export class GenreComponent {
+  /**
+   * Injects the dialog data provided by parent component.
+   * @constructor
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {

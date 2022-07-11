@@ -1,7 +1,6 @@
 import { ConfirmationDialogComponent } from './../confirmation-dialog/confirmation-dialog.component';
 import { UserRegistrationService } from './../common/services/fetch-api-data.service';
 import { UserInfoService } from './../common/services/user-info.service';
-import { UserRegistrationComponent } from './../user-registration/user-registration.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -35,6 +34,9 @@ export class ProfileComponent implements OnInit {
     this.user = this.userInfoService.getUser();
   }
 
+  /**
+   * Opens profile editor dialog
+   */
   openEditProfileDialog(): void {
     this.dialog
       .open(EditorComponent, {
@@ -46,6 +48,9 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  /**
+   * Deletes the user profile
+   */
   deleteProfile(): void {
     this.dialog
       .open(ConfirmationDialogComponent, {

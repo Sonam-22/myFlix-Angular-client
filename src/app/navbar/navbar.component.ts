@@ -13,6 +13,9 @@ export class NavbarComponent {
     private router: Router
   ) {}
 
+  /**
+   * Logs out the user
+   */
   logout() {
     this.userInfoSerivce.logout();
     this.router.navigate(['welcome']);

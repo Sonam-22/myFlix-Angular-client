@@ -25,10 +25,10 @@ export class MoviesComponent implements OnInit {
     private snackBar: MatSnackBar
   ) {}
 
+  /**
+   * Init hook of the component. Fetch movies and set favorite movies.
+   */
   ngOnInit(): void {
-    /**
-     * Fetch movies and set movies on beginning.
-     */
     this.getMovies();
     this.setFavoriteMovies();
   }
@@ -67,6 +67,11 @@ export class MoviesComponent implements OnInit {
     return this.favouriteMovies.includes(id);
   }
 
+  /**
+   * Opens genre details modal
+   * @param name name of the genere
+   * @param description description of the genre
+   */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
@@ -77,6 +82,13 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens director details modal
+   * @param name name of director
+   * @param bio bio of director
+   * @param birthday birthday of director
+   * @param death death day of director
+   */
   openDirectorDialog(
     name: string,
     bio: string,
@@ -94,6 +106,11 @@ export class MoviesComponent implements OnInit {
     });
   }
 
+  /**
+   * Opens movie details modal
+   * @param title title of movie
+   * @param description description of movie
+   */
   openMovieDetailsModal(title: string, description: string): void {
     this.dialog.open(MovieDetailsComponent, {
       data: {
@@ -135,6 +152,11 @@ export class MoviesComponent implements OnInit {
     );
   }
 
+  /**
+   * Updates the favourite movie.
+   * @param id id of the user
+   * @param op operation to be performed on the favourite moview
+   */
   private updateFavouriteMovie(id: string, op: (favs: string[]) => string[]) {
     const user = this.userInfoService.getUser();
     user.favouriteMovies = op(user.favouriteMovies);
